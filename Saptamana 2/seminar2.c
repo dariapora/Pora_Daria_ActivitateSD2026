@@ -68,10 +68,6 @@ void dezalocare(struct Biblioteca** vector, int* nrElemente) {
 }
 
 void copiazaBibcuSupMare(struct Biblioteca* vector, char nrElemente, float supMin, struct Biblioteca** vectorNou, int* dimensiune) {
-	//parametrul prag poate fi modificat in functie de
-	// tipul atributului ales pentru a indeplini o conditie
-	//este creat un nou vector cu elementele care indeplinesc acea conditie
-
 	*dimensiune=0;
 	for (int i = 0; i < nrElemente; ++i) {
 		if (vector->suprafata>supMin) {
@@ -90,13 +86,6 @@ void copiazaBibcuSupMare(struct Biblioteca* vector, char nrElemente, float supMi
 }
 
 struct Biblioteca getPrimulElementConditionat(struct Biblioteca* vector, int nrElemente, const char* conditie) {
-	//trebuie cautat elementul care indeplineste o conditie
-	//dupa atributul de tip char*. Acesta este returnat.
-
-	//DE CAUTAT BIBLIOTECA CU UN ANUMIT NUME CU STRCPMP.
-	//ESTE O FUNCTIE CARE PRIMESTE DOI PARAMETRII DE TIP CHAR*, SI FACE DIFERENTA INTRE CODURILE ASCII SI RETURNEAZA O VALOARE, 0 DACA SUNT LA FEL
-
-
 	struct Biblioteca s;
 	s.id = 1;
 
