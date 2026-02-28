@@ -25,7 +25,6 @@ struct Biblioteca initializare(int id, int nrCarti, char* nume, float suprafata,
 
 struct Biblioteca copiazaBiblioteca(struct Biblioteca sursa) {
 	return initializare(sursa.id, sursa.nrCarti, sursa.nume, sursa.suprafata, sursa.sector);
-
 }
 
 void afisare(struct Biblioteca s) {
@@ -39,7 +38,6 @@ void afisareVector(struct Biblioteca* vector, int nrElemente) {
 }
 
 struct Biblioteca* copiazaPrimeleNElemente(struct Biblioteca* vector, int nrElemente, int nrElementeCopiate) {
-	//copiem intr-un vector nou pe care il vom returna primele nrElementeCopiate
 	struct Biblioteca *vectorNou=NULL;
 	if (nrElementeCopiate < nrElemente) {
 		nrElementeCopiate = nrElemente;
@@ -49,34 +47,26 @@ struct Biblioteca* copiazaPrimeleNElemente(struct Biblioteca* vector, int nrElem
 	for (int i = 0; i< nrElementeCopiate; i++) {
 		vectorNou[i] = copiazaBiblioteca(vector[i]);
 	}
-
 	return vectorNou;
 }
 
 void dezalocare(struct Biblioteca** vector, int* nrElemente) {
-	//dezalocam elementele din vector si vectorul
 	for (int i = 0; i < *nrElemente; ++i) {
 		free((*vector)[i].nume);
-
-
 	}
 	free((*vector));
 	*vector = NULL;
-	nrElemente = 0;
-
-
+	*nrElemente = 0;
 }
 
-void copiazaBibcuSupMare(struct Biblioteca* vector, char nrElemente, float supMin, struct Biblioteca** vectorNou, int* dimensiune) {
+void copiazaBibliotecaCuSuprafataMare(struct Biblioteca* vector, char nrElemente, float supMin, struct Biblioteca** vectorNou, int* dimensiune) {
 	*dimensiune=0;
 	for (int i = 0; i < nrElemente; ++i) {
 		if (vector->suprafata>supMin) {
 			(*dimensiune)++;
 		}
 	}
-
 	*vectorNou = (struct Biblioteca*)malloc(sizeof( struct Biblioteca)* (*dimensiune));
-
 	int contor=0;
 	for (int i = 0; i < nrElemente; ++i) {
 		if (vector->suprafata>supMin) {
@@ -85,14 +75,16 @@ void copiazaBibcuSupMare(struct Biblioteca* vector, char nrElemente, float supMi
 	}
 }
 
-struct Biblioteca getPrimulElementConditionat(struct Biblioteca* vector, int nrElemente, const char* conditie) {
+struct Biblioteca getPrimulElementConditionat(struct Biblioteca* vector, int nrElemente, const char* denumire) {
 	struct Biblioteca s;
-	s.id = 1;
-
-	return s;
+	for(int i=0; i<nrElemente; i++) {
+		if (strcmp(vector[i].nume, denumire)==0) {
+			s = copiazaBiblioteca(vector[i]);
+			return s;
+		}
+	}
+	return initializare(0, 0, "N/A", 0, 0);
 }
-
-
 
 int main() {
 	struct Biblioteca b;
@@ -110,17 +102,21 @@ int main() {
 	afisareVector(vectorBiblioteci, numarBiblioteci);
 	int nrCopiate = 3;
 	struct Biblioteca* copie= copiazaPrimeleNElemente(vectorBiblioteci, numarBiblioteci, nrCopiate);
-	printf("\nElementele vect cu primele %d elemente copiate", nrCopiate);
+	printf("\nElementele vectorului cu primele %d elemente copiate: \n", nrCopiate);
 	afisareVector(copie, nrCopiate);
 
 	dezalocare(&copie,&nrCopiate);
 
-	struct Biblioteca* vBibcuSupMAre = NULL;
-	int nrBibCuSupM = 0;
-	copiazaBibcuSupMare(vectorBiblioteci, numarBiblioteci, 100,&vBibcuSupMAre,&nrBibCuSupM);
-	afisareVector(vBibcuSupMAre,nrBibCuSupM);
+	struct Biblioteca* vBiblioteciCuSuprafataMare = NULL;
+	int nrBibliotecaCuSuprafataMare = 0;
+	copiazaBibliotecaCuSuprafataMare(vectorBiblioteci, numarBiblioteci, 100,&vBiblioteciCuSuprafataMare,&nrBibliotecaCuSuprafataMare);
 
-	dezalocare(&vBibcuSupMAre,&nrBibCuSupM);
+	printf("\nElementele vectorului cu biblioteci mari: \n");
+	afisareVector(vBiblioteciCuSuprafataMare,nrBibliotecaCuSuprafataMare);
+	dezalocare(&vBiblioteciCuSuprafataMare,&nrBibliotecaCuSuprafataMare);
+
+	printf("\nPrimul element care indeplineste conditia: \n");
+	afisare(getPrimulElementConditionat(vectorBiblioteci, numarBiblioteci, "Slavici"));
 
 	return 0;
 }
