@@ -39,7 +39,7 @@ void afisareVector(struct Biblioteca* vector, int nrElemente) {
 
 struct Biblioteca* copiazaPrimeleNElemente(struct Biblioteca* vector, int nrElemente, int nrElementeCopiate) {
 	struct Biblioteca *vectorNou=NULL;
-	if (nrElementeCopiate < nrElemente) {
+	if (nrElementeCopiate > nrElemente) {
 		nrElementeCopiate = nrElemente;
 	}
 
