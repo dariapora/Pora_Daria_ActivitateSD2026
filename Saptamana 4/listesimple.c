@@ -159,7 +159,7 @@ float calculeazaPretulMasinilorUnuiSofer(Nod* primul, const char* numeSofer) {
 }
 
 int main() {
-	Nod* primul = citireListaMasiniDinFisier("masini.txt");
+	Nod* primul = citireListaMasiniDinFisier("../masini.txt");
 	afisareListaMasini(primul);
 	//dezalocareListaMasini(&primul);
 	//afisareListaMasini(primul);

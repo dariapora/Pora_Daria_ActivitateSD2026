@@ -80,7 +80,7 @@ int main()
 {
 	int nrMasini = 0;
 	Masina* masini = NULL;
-	masini = citireVectorMasiniFisier("masini.txt", &nrMasini);
+	masini = citireVectorMasiniFisier("../masini.txt", &nrMasini);
 	afisareVectorMasini(masini, nrMasini);
 	return 0;
 }
