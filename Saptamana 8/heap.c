@@ -79,17 +79,11 @@ void filtreazaHeap(Heap heap, int pozitieNod) {
 }
 
 Heap citireHeapDeMasiniDinFisier(const char* numeFisier) {
-	//citim toate masinile din fisier si le stocam intr-un heap
-	// pe care trebuie sa il filtram astfel incat sa respecte
-	// principiul de MAX-HEAP sau MIN-HEAP dupa un anumit criteriu
-	// sunt citite toate elementele si abia apoi este filtrat vectorul
+
 	FILE* f = fopen("../masini.txt", "r");
 	Heap heap=initializareHeap(10);
-	for (int i=0; i<10; i++) {
-		heap.vector[i] = citireMasinaDinFisier(f);
-	}
 	int contor = 0;
-	while (!feof(f) && contor<10) {
+	while (!feof(f)) {
 		Masina m = citireMasinaDinFisier(f);
 		heap.vector[contor] = m;
 		contor++;
