@@ -9,7 +9,7 @@ Repo-ul contine atat activitatea din cadrul seminarelor de la facultate, cat si 
 > Exercitii de la seminar + suplimentare.<br />
 > In cadrul acestei saptamani, am inceput proiectul [Project abC](https://github.com/dariapora/project-abC) pentru a consolida cunostintele dobandite la curs despre macrodefinitii.
 
-### [Saptamana 3 - Continuare Vectori](./Saptamana%203)
+### [Saptamana 3 - Fisiere](./Saptamana%203)
 > Exercitii de la seminar.<br />
 
 ### [Saptamana 4 - Liste Simplu Inlantuite](./Saptamana%204)
