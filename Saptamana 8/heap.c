@@ -65,7 +65,7 @@ void filtreazaHeap(Heap heap, int pozitieNod) {
 	if (pozitie_dreapta < heap.nr_elemente_vizibile && heap.vector[pozitie_max].pret < heap.vector[pozitie_dreapta].pret) {
 		pozitie_max = pozitie_dreapta;
 	}
-	else if (pozitie_stanga < heap.nr_elemente_vizibile && heap.vector[pozitie_max].pret < heap.vector[pozitie_stanga].pret) {
+	if (pozitie_stanga < heap.nr_elemente_vizibile && heap.vector[pozitie_max].pret < heap.vector[pozitie_stanga].pret) {
 		pozitie_max = pozitie_stanga;
 	}
 	if (pozitie_max!=pozitieNod) {
