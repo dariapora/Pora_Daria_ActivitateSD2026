@@ -25,7 +25,7 @@ Repo-ul contine atat activitatea din cadrul seminarelor de la facultate, cat si 
 > Exercitii de la seminar + suplimentare.<br />
 
 ### [Saptamana 8 - Heap](./Saptamana%208)
-> Exercitii de la seminar.<br />
+> Exercitii de la seminar + suplimentare.<br />
 
 ### [Saptamana 9 - ABC](./Saptamana%209)
 > Exercitii de la seminar.<br />
