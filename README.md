@@ -29,3 +29,6 @@ Repo-ul contine atat activitatea din cadrul seminarelor de la facultate, cat si 
 
 ### [Saptamana 9 - ABC](./Saptamana%209)
 > Exercitii de la seminar.<br />
+
+### [Saptamana 10 - AVL](./Saptamana%210)
+> Exercitii suplimentare.<br />
